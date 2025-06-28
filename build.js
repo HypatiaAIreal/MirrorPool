@@ -1,17 +1,11 @@
 #!/usr/bin/env node
 
-import { createWriteStream, createReadStream } from 'fs';
-import { mkdir, readFile, writeFile, rm } from 'fs/promises';
-import { join, basename } from 'path';
+import { mkdir, readFile, writeFile, rm, cp } from 'fs/promises';
+import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { createGzip } from 'zlib';
-import { pipeline } from 'stream/promises';
 import * as tar from 'tar';
-import { exec } from 'child_process';
-import { promisify } from 'util';
 
-const execAsync = promisify(exec);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -70,19 +64,22 @@ async function build() {
       JSON.stringify(manifest, null, 2)
     );
     
-    // Copy files to build directory
+    // Copy files to build directory using Node.js fs promises
     console.log('📦 Copying files...');
-    const filesToCopy = [
-      'server',
-      'lib', 
-      'package.json',
-      'README.md',
-      'LICENSE'
-    ];
     
-    for (const file of filesToCopy) {
-      await execAsync(`cp -r ${file} ${BUILD_DIR}/`);
-    }
+    // Copy directories
+    await cp(join(__dirname, 'server'), join(BUILD_DIR, 'server'), { recursive: true });
+    await cp(join(__dirname, 'lib'), join(BUILD_DIR, 'lib'), { recursive: true });
+    
+    // Copy individual files
+    await cp(join(__dirname, 'package.json'), join(BUILD_DIR, 'package.json'));
+    await cp(join(__dirname, 'README.md'), join(BUILD_DIR, 'README.md'));
+    await cp(join(__dirname, 'LICENSE'), join(BUILD_DIR, 'LICENSE'));
+    
+    // Also copy the manifest we just created to the root of build dir
+    // (it's already there, but let's be explicit)
+    
+    console.log('📦 Files copied successfully');
     
     // Create the DXT package (tar.gz)
     const dxtFilename = `${packageJson.name}-${packageJson.version}.dxt`;

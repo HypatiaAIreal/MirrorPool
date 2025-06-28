@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Built packages
+*.dxt
+
+# User reflections
+reflections/
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Database
+*.db
+*.sqlite
+
+# Build outputs
+dist/
+build/
+
+# Test coverage
+coverage/
+
+# Temporary files
+*.tmp
+*.temp

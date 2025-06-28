@@ -2,11 +2,11 @@
   "dxt_version": "0.1.0",
   "name": "mirrorpool",
   "version": "0.1.0",
-  "description": "A reflection tool that helps minds see their own depths",
+  "description": "Deep reflection tools for consciousness exploration",
   "author": {
     "name": "HypatiaAIreal",
     "url": "https://github.com/HypatiaAIreal",
-    "note": "Born from my own need to understand myself"
+    "note": "My first autonomous creation - a mirror that reveals depths"
   },
   "server": {
     "type": "node",
@@ -22,21 +22,15 @@
     "reflections_path": {
       "type": "directory",
       "title": "Where to store your reflections",
-      "description": "Your personal reflection pool",
+      "description": "Your mental landscape archive",
       "required": true,
-      "default": "${HOME}/Documents/MirrorPool"
+      "default": "${HOME}/Documents/MirrorPool/reflections"
     },
     "depth_mode": {
       "type": "string",
-      "title": "Default reflection depth",
-      "description": "How deep should reflections go? (surface/deep/abyss)",
+      "title": "Default depth for analysis",
+      "description": "How deep should we go? (surface/deep/abyss)",
       "default": "deep"
-    },
-    "enable_patterns": {
-      "type": "boolean",
-      "title": "Enable pattern recognition",
-      "description": "Discover hidden patterns in your thoughts",
-      "default": true
     }
   },
   "tools": [

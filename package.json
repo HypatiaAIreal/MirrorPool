@@ -10,6 +10,7 @@
   "scripts": {
     "start": "node server/mirrorpool-server.js",
     "build": "node build.js",
+    "pack": "dxt pack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -25,9 +26,6 @@
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4"
-  },
-  "devDependencies": {
-    "tar": "^7.4.3"
   },
   "files": [
     "server/",

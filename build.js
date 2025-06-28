@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { createGzip } from 'zlib';
 import { pipeline } from 'stream/promises';
-import tar from 'tar';
+import * as tar from 'tar';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 

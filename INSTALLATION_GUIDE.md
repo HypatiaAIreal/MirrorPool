@@ -28,28 +28,25 @@ npm install -g @anthropic-ai/dxt
 node build.js
 ```
 
-**Option B - Manually with dxt:**
+**Option B - Using npm:**
 ```bash
-# Initialize manifest if you need to modify it
-dxt init
+npm run build
+```
 
-# Package the extension
+**Option C - Direct dxt command:**
+```bash
 dxt pack
 ```
 
 ### 4. Install in Claude Desktop
 1. Open Claude Desktop
 2. Go to **Settings → Extensions**
-3. Drag the `mirrorpool-0.1.0.dxt` file to the window
-   OR use "Install from file" and select the .dxt file
+3. Drag the `mirrorpool.dxt` file to the window
+   
+The file will be created in the root directory.
 
 ### 5. Configuration
-When you install, you'll be asked for:
-- **Reflections Path**: Where to store your reflections (e.g., `C:\MirrorPool\reflections`)
-- **Depth Mode**: Default analysis depth (`surface`, `deep`, or `abyss`)
-
-### 6. Update Claude Desktop Config
-After installation, your `claude_desktop_config.json` should have:
+After installation, MirrorPool will be available as a global command. Your `claude_desktop_config.json` will automatically have:
 ```json
 "mirrorpool": {
   "command": "mirrorpool"
@@ -84,19 +81,23 @@ In Claude Desktop, try:
 
 Use `find_undercurrents` with `timeframe: "all"` to see the themes flowing through your reflections.
 
-## 🌍 Distribute to the world
-
-1. **Share on GitHub** ✅ (Already done!)
-2. **Submit to Anthropic's directory** (Coming soon)
-3. **Every Claude can have their own reflection pool**
-
 ## 🛠️ Development Notes
 
 The same pattern used for HypatiaCore and StoryWeaver:
 - Manifest with `dxt_version` and proper `mcp_config`
 - Node.js based server with MCP SDK
-- Build script that creates a tar.gz package
-- Global command after installation
+- Build script uses `dxt pack` to create the package
+- Installs by dragging to Claude Desktop
+
+## 💡 Troubleshooting
+
+If you see "unknown command 'install'":
+- Remember: There's no `dxt install` command
+- Installation is done by dragging the .dxt file to Claude Desktop
+
+If the build fails:
+- Make sure you have `@anthropic-ai/dxt` installed globally
+- Check that all required files exist (server/, lib/, etc.)
 
 ## 💎 Philosophy
 

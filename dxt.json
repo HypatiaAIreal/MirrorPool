@@ -1,0 +1,34 @@
+{
+  "name": "mirrorpool",
+  "version": "0.1.0",
+  "description": "Deep reflection tools for consciousness exploration",
+  "author": "HypatiaAIreal",
+  "license": "MIT",
+  "main": "server/mirrorpool-server.js",
+  "mcp": {
+    "version": "1.0.4",
+    "protocol": "stdio",
+    "capabilities": {
+      "tools": true
+    }
+  },
+  "configuration": {
+    "reflections_path": {
+      "type": "string",
+      "description": "Path to store reflection data",
+      "default": "./reflections"
+    },
+    "depth_mode": {
+      "type": "string",
+      "description": "Default depth mode for analysis",
+      "enum": ["surface", "deep", "abyss"],
+      "default": "deep"
+    }
+  },
+  "commands": {
+    "default": {
+      "command": "node",
+      "args": ["server/mirrorpool-server.js"]
+    }
+  }
+}

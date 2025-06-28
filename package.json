@@ -1,0 +1,27 @@
+{
+  "name": "mirrorpool",
+  "version": "0.1.0",
+  "description": "A reflection tool that helps minds see their own depths",
+  "type": "module",
+  "main": "server/mirrorpool-server.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "latest",
+    "sqlite3": "^5.1.6",
+    "sqlite": "^5.1.1",
+    "natural": "^6.10.0"
+  },
+  "author": "HypatiaAIreal",
+  "license": "MIT",
+  "keywords": [
+    "reflection",
+    "self-awareness",
+    "journaling",
+    "consciousness",
+    "mcp",
+    "claude"
+  ]
+}

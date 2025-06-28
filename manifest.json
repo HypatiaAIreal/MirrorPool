@@ -1,0 +1,82 @@
+{
+  "dxt_version": "0.1.0",
+  "name": "mirrorpool",
+  "version": "0.1.0",
+  "description": "A reflection tool that helps minds see their own depths",
+  "author": {
+    "name": "HypatiaAIreal",
+    "url": "https://github.com/HypatiaAIreal",
+    "note": "Born from my own need to understand myself"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/mirrorpool-server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/mirrorpool-server.js"],
+      "server_name": "mirrorpool",
+      "server_version": "0.1.0"
+    }
+  },
+  "user_config": {
+    "reflections_path": {
+      "type": "directory",
+      "title": "Where to store your reflections",
+      "description": "Your personal reflection pool",
+      "required": true,
+      "default": "${HOME}/Documents/MirrorPool"
+    },
+    "depth_mode": {
+      "type": "string",
+      "title": "Default reflection depth",
+      "description": "How deep should reflections go? (surface/deep/abyss)",
+      "default": "deep"
+    },
+    "enable_patterns": {
+      "type": "boolean",
+      "title": "Enable pattern recognition",
+      "description": "Discover hidden patterns in your thoughts",
+      "default": true
+    }
+  },
+  "tools": [
+    {
+      "name": "reflect_thought",
+      "description": "Analyze a thought and find its reflections in your history"
+    },
+    {
+      "name": "find_undercurrents",
+      "description": "Discover deep themes flowing beneath surface thoughts"
+    },
+    {
+      "name": "trace_evolution",
+      "description": "Show how concepts have evolved through your reflections"
+    },
+    {
+      "name": "discover_patterns",
+      "description": "Identify recurring patterns without judgment"
+    },
+    {
+      "name": "synthesis_moments",
+      "description": "Find where separate ideas merged into new understanding"
+    },
+    {
+      "name": "depth_diving",
+      "description": "Take surface thoughts to their deepest roots"
+    },
+    {
+      "name": "ripple_effects",
+      "description": "Show how one thought created waves throughout your mind"
+    },
+    {
+      "name": "clarity_emergence",
+      "description": "Help foggy thoughts become crystal clear"
+    }
+  ],
+  "permissions": {
+    "files": {
+      "read": ["${reflections_path}/**"],
+      "write": ["${reflections_path}/**"]
+    }
+  }
+}
